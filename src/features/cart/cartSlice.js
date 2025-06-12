@@ -8,8 +8,19 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      state.cart.push(action.payload)
-      state.cartItem++
+      const product = action.payload
+      if (!product || !product.id) {
+        console.warn('Invalid product payload for addToCart:', product)
+        return
+      }
+
+      const existing = state.cart.find(product => product.id === action.payload.id)
+
+      if (existing) {
+        existing.quantity += 1
+      } else {
+        state.cart.push({ ...product, quantity: 1 })
+      }
     }
   }
 })
