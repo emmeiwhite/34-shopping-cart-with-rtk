@@ -25,6 +25,7 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const id = action.payload
+      console.log()
       if (!id) {
         console.warn('No product ID provided for removeFromCart')
         return
@@ -62,4 +63,5 @@ console.log(cartSlice)
 
 // export reducer and actions creators from actions object (console.log(cartSlice) to rescue)
 export const cartReducer = cartSlice.reducer
-export const { addToCart, removeFromCart, incrementQty, decrementQty } = cartSlice.actions
+export const { addToCart, removeFromCart, incrementQty, decrementQty, updateQuantity } =
+  cartSlice.actions
