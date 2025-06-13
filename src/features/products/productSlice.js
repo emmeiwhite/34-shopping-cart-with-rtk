@@ -36,6 +36,6 @@ const productSlice = createSlice({
 
 console.log(productSlice)
 
-export const productReducer = productSlice.reducer // internally in the console we see reducer with the function
+export default productSlice.reducer // internally in the console we see reducer with the function
 
 export { fetchProducts } // We are exporting async-actions, so not the .actions this time
