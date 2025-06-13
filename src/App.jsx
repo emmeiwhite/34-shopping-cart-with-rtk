@@ -1,9 +1,22 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import CartPage from './pages/CartPage'
+
 function App() {
   return (
     <>
-      <h1>Shopping Cart</h1>
-
-      <p>Piece by piece, component by component, slice by slice (feature by feature)</p>
+      <Router>
+        <Routes>
+          <Route
+            to="/"
+            element={<HomePage />}
+          />
+          <Route
+            to="/cart"
+            element={<CartPage />}
+          />
+        </Routes>
+      </Router>
     </>
   )
 }
