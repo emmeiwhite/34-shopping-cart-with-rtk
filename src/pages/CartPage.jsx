@@ -1,4 +1,10 @@
+import CartList from '../components/CartList'
+
 function CartPage() {
-  return <div>CartPage</div>
+  return (
+    <>
+      <CartList />
+    </>
+  )
 }
 export default CartPage
