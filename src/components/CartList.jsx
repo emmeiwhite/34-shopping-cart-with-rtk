@@ -39,7 +39,7 @@ function CartList() {
 
       {/* Total + Back Button */}
       <div className="mt-8 flex justify-between items-center">
-        <p className="text-xl font-semibold text-gray-800">Total: ${totalPrice}</p>
+        <p className="text-xl font-semibold text-gray-800">Total: ${totalPrice.toFixed(2)}</p>
         <Link
           to="/"
           className="px-4 py-2 bg-amber-300 text-gray-800 rounded hover:bg-amber-400 text-sm font-medium transition">

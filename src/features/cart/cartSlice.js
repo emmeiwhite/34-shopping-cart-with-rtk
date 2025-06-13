@@ -9,10 +9,11 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const product = action.payload
-      if (!product || !product.id) {
-        console.warn('Invalid product payload for addToCart:', product)
-        return
-      }
+      console.log(product)
+      // if (!product || !product.id) {
+      //   console.warn('Invalid product payload for addToCart:', product)
+      //   return
+      // }
 
       const existing = state.cart.find(product => product.id === action.payload.id)
 

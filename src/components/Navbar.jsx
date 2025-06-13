@@ -24,7 +24,7 @@ function Navbar() {
           <Link
             to="/cart"
             className="hover:underline text-sm font-medium">
-            Cart ({7})
+            Cart ({cart.length})
           </Link>
         </div>
       </nav>

@@ -22,7 +22,7 @@ function ProductItem({ product }) {
       </p>
       <button
         className="mt-4 py-2 px-3 bg-amber-300 hover:bg-amber-400 text-gray-800 rounded transition cursor-pointer"
-        onClick={dispatch(addToCart(product))}>
+        onClick={() => dispatch(addToCart(product))}>
         Add to Cart
       </button>
     </div>
