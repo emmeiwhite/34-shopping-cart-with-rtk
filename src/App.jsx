@@ -1,18 +1,20 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import CartPage from './pages/CartPage'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <>
       <Router>
+        <Navbar />
         <Routes>
           <Route
-            to="/"
+            path="/"
             element={<HomePage />}
           />
           <Route
-            to="/cart"
+            path="/cart"
             element={<CartPage />}
           />
         </Routes>
