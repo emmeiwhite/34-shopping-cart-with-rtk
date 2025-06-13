@@ -43,7 +43,7 @@ function CartList() {
         <p className="text-xl font-semibold text-gray-800">Total: ${getTotal(dummyCart)}</p>
         <Link
           to="/"
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">
+          className="px-4 py-2 bg-amber-300 text-gray-800 rounded hover:bg-amber-400 text-sm font-medium transition">
           ← Back to Shopping
         </Link>
       </div>

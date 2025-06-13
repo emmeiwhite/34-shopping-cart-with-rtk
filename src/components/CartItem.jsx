@@ -22,10 +22,10 @@ function CartItem({ item }) {
             min={1}
             className="w-16 border px-2 py-1 rounded text-center"
           />
-          <button className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded">
+          <button className="px-4 py-2 bg-amber-300 text-gray-800 rounded hover:bg-amber-400 text-sm font-medium transition">
             Update
           </button>
-          <button className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white text-sm rounded">
+          <button className="px-4 py-2 bg-amber-300 text-gray-800 rounded hover:bg-amber-400 text-sm font-medium transition">
             Remove
           </button>
         </div>

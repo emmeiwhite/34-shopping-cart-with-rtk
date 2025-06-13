@@ -11,11 +11,11 @@ function ProductItem({ product }) {
         />
       </a>
       <h4 className="text-sm font-semibold mb-1 text-gray-800 line-clamp-2">{title}</h4>
-      <p className="text-base font-bold text-green-600">${price}</p>
+      <p className="text-base font-bold text-green-500">${price}</p>
       <p className="text-xs text-gray-600">
         ⭐ {rating.rate} ({rating.count})
       </p>
-      <button className="mt-4 py-1 px-3 bg-green-500 hover:bg-green-600 text-white text-sm rounded transition">
+      <button className="mt-4 py-2 px-3 bg-amber-300 hover:bg-amber-400 text-gray-800 rounded transition cursor-pointer">
         Add to Cart
       </button>
     </div>
