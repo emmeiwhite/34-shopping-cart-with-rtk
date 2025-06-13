@@ -11,7 +11,7 @@ function ProductList() {
 
   useEffect(() => {
     dispatch(fetchProducts()) // async actions with createAsyncThunk
-  }, [])
+  }, [dispatch])
 
   if (loading)
     return (

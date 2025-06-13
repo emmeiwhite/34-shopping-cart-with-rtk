@@ -1,28 +1,27 @@
+import { useSelector } from 'react-redux'
 import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
 
-const dummyCart = [
-  {
-    id: 1,
-    title: 'Mens Cotton Jacket',
-    image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-    price: 55.99,
-    quantity: 2
-  },
-  {
-    id: 2,
-    title: 'Mens Casual T-Shirt',
-    image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
-    price: 22.3,
-    quantity: 1
-  }
-]
-
-// Calculate total
-const getTotal = items =>
-  items.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)
-
 function CartList() {
+  const { cart } = useSelector(state => state.cart)
+
+  const totalPrice = cart.reduce((acc, item) => acc + item.quantity * item.price, 0)
+
+  // When there are no items in the cart
+  if (cart.length === 0) {
+    return (
+      <div className="max-w-5xl mx-auto px-4 md:px-6 mt-10 text-center">
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Your cart is empty</h2>
+        <Link
+          to="/"
+          className="inline-block px-4 py-2 bg-amber-300 text-gray-800 rounded hover:bg-amber-400 text-sm font-medium transition">
+          ← Back to Shopping
+        </Link>
+      </div>
+    )
+  }
+
+  // When the user has added some products
   return (
     <div className="max-w-5xl mx-auto px-4 md:px-6 mt-6">
       {/* Heading */}
@@ -30,7 +29,7 @@ function CartList() {
 
       {/* Cart Items */}
       <div className="space-y-4">
-        {dummyCart.map(item => (
+        {cart.map(item => (
           <CartItem
             key={item.id}
             item={item}
@@ -40,7 +39,7 @@ function CartList() {
 
       {/* Total + Back Button */}
       <div className="mt-8 flex justify-between items-center">
-        <p className="text-xl font-semibold text-gray-800">Total: ${getTotal(dummyCart)}</p>
+        <p className="text-xl font-semibold text-gray-800">Total: ${totalPrice}</p>
         <Link
           to="/"
           className="px-4 py-2 bg-amber-300 text-gray-800 rounded hover:bg-amber-400 text-sm font-medium transition">
