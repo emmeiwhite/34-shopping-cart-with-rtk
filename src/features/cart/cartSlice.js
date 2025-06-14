@@ -1,21 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  cart: []
+  cart: JSON.parse(localStorage.getItem('cart')) || []
 }
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     addToCart: (state, action) => {
       const product = action.payload
-      console.log(product)
-      // if (!product || !product.id) {
-      //   console.warn('Invalid product payload for addToCart:', product)
-      //   return
-      // }
 
-      const existing = state.cart.find(product => product.id === action.payload.id)
+      const existing = state.cart.find(item => item.id === product.id)
 
       if (existing) {
         existing.quantity += 1
@@ -25,19 +21,11 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const id = action.payload
-      console.log()
-      if (!id) {
-        console.warn('No product ID provided for removeFromCart')
-        return
-      }
+
       state.cart = state.cart.filter(item => item.id !== id)
     },
     incrementQty: (state, action) => {
       const id = action.payload
-      if (!id) {
-        console.warn('No product ID provided for incrementQty')
-        return
-      }
 
       const item = state.cart.find(item => item.id === id)
       if (item) {
@@ -46,15 +34,14 @@ const cartSlice = createSlice({
     },
     decrementQty: (state, action) => {
       const id = action.payload
-      if (!id) {
-        console.warn('No product ID provided for decrementQty')
-        return
-      }
 
       const item = state.cart.find(item => item.id === id)
       if (item && item.quantity > 1) {
         item.quantity -= 1
       }
+    },
+    clearAll: state => {
+      state.cart = []
     }
   }
 })
@@ -63,5 +50,4 @@ console.log(cartSlice)
 
 // export reducer and actions creators from actions object (console.log(cartSlice) to rescue)
 export const cartReducer = cartSlice.reducer
-export const { addToCart, removeFromCart, incrementQty, decrementQty, updateQuantity } =
-  cartSlice.actions
+export const { addToCart, removeFromCart, incrementQty, decrementQty, clearAll } = cartSlice.actions

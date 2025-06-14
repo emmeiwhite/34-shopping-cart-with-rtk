@@ -1,11 +1,17 @@
 import { useSelector } from 'react-redux'
 import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function CartList() {
   const { cart } = useSelector(state => state.cart)
 
   const totalPrice = cart.reduce((acc, item) => acc + item.quantity * item.price, 0)
+
+  // Persisting cart state. Whenever cart updates we save updated state to localStorage, And use the same localStorage 'cart' in cartSlice while setting initialState
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
 
   // When there are no items in the cart
   if (cart.length === 0) {
